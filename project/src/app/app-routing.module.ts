@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { UsersComponent } from './users/users.component';
+import { BackendLayoutComponent } from './layouts/backend-layout/backend-layout.component';
+import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
+import { DEFAULT_ROUTES } from './routes/default-layout-routes';
+import { BACKEND_ROUTES } from './routes/backend-layout-routes';
+import { PageNotFoundComponent } from './cms/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-    path:'', redirectTo:'',pathMatch:'full'
+    path:'',component:DefaultLayoutComponent,children:DEFAULT_ROUTES
   },
   {
-    path:'users',component:UsersComponent
+    path:'backend',component:BackendLayoutComponent,children:BACKEND_ROUTES
   },
   {
-    path:'**',component:PageNotFoundComponent
-  }
+    path:'**',redirectTo:'404'
+  },
 ];
 
 @NgModule({

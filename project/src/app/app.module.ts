@@ -4,24 +4,30 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
+
 import { MessageComponent } from './message/message.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 import { from } from 'rxjs';
 import { MessageService } from './services/message.service';
 import { HttpErrorHandler } from './services/http-error-handler.service';
+import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
+import { BackendLayoutComponent } from './layouts/backend-layout/backend-layout.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
+    
     MessageComponent,
-    PageNotFoundComponent
+   
+    DefaultLayoutComponent,
+    BackendLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     MessageService,
